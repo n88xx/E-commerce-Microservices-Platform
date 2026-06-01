@@ -1,8 +1,7 @@
-package com.innowise.authservice;
+package com.innowise.authservice.security;
 
 import com.innowise.authservice.config.JwtConfig;
 
-import com.innowise.authservice.security.JwtProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
