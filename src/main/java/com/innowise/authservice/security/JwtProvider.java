@@ -21,6 +21,7 @@ public class JwtProvider {
     public String generateAccessToken(Long userId, String role) {
         return Jwts.builder()
                 .subject(userId.toString())
+                .claim("userId", userId)
                 .claim("role", role)
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + jwtConfig.getAccessExpiration()))
