@@ -72,7 +72,9 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public AuthResponse refresh(RefreshRequest request) {
-        jwtProvider.validateToken(request.getRefreshToken());
+        if(jwtProvider.validateToken(request.getRefreshToken())){
+            throw new TokenException("Invalid or expired refresh token");
+        }
 
         Long userId = jwtProvider.getUserIdFromToken(request.getRefreshToken());
         Credential credential = credentialRepository.findByUserId(userId)
@@ -85,7 +87,9 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public ValidateResponse validate(String token) {
-        jwtProvider.validateToken(token);
+        if (!jwtProvider.validateToken(token)){
+            throw new TokenException("Invalid or expired token");
+        }
 
         Long userId = jwtProvider.getUserIdFromToken(token);
         String role = jwtProvider.getRoleFromToken(token);
