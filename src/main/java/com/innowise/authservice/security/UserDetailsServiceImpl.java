@@ -1,6 +1,6 @@
 package com.innowise.authservice.security;
 
-import com.innowise.authservice.model.entity.Credential;
+import com.innowise.authservice.entity.Credential;
 import com.innowise.authservice.repository.CredentialRepository;
 import lombok.RequiredArgsConstructor;
 

@@ -1,4 +1,4 @@
-package com.innowise.authservice.model.entity;
+package com.innowise.authservice.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

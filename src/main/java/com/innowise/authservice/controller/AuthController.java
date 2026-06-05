@@ -1,10 +1,10 @@
 package com.innowise.authservice.controller;
 
-import com.innowise.authservice.model.dto.AuthResponse;
-import com.innowise.authservice.model.dto.LoginRequest;
-import com.innowise.authservice.model.dto.RefreshRequest;
-import com.innowise.authservice.model.dto.RegisterRequest;
-import com.innowise.authservice.model.dto.ValidateResponse;
+import com.innowise.authservice.dto.AuthResponse;
+import com.innowise.authservice.dto.LoginRequest;
+import com.innowise.authservice.dto.RefreshRequest;
+import com.innowise.authservice.dto.RegisterRequest;
+import com.innowise.authservice.dto.ValidateResponse;
 import com.innowise.authservice.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

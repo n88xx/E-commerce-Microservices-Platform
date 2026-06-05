@@ -1,6 +1,6 @@
 package com.innowise.authservice.repository;
 
-import com.innowise.authservice.model.entity.Credential;
+import com.innowise.authservice.entity.Credential;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
