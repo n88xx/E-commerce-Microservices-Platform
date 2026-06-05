@@ -9,6 +9,7 @@ import com.innowise.authservice.model.dto.RefreshRequest;
 import com.innowise.authservice.model.dto.RegisterRequest;
 import com.innowise.authservice.model.dto.ValidateResponse;
 import com.innowise.authservice.model.entity.Credential;
+import com.innowise.authservice.model.entity.Role;
 import com.innowise.authservice.repository.CredentialRepository;
 import com.innowise.authservice.service.AuthService;
 import com.innowise.authservice.security.JwtProvider;
@@ -42,7 +43,7 @@ public class AuthServiceImpl implements AuthService {
                 .userId(request.getUserId())
                 .login(request.getLogin())
                 .passwordHash(passwordEncoder.encode(request.getPassword()))
-                .role(request.getRole())
+                .role(Role.USER)
                 .active(true)
                 .build();
 
