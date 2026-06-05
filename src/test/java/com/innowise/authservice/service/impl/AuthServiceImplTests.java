@@ -81,7 +81,6 @@ class AuthServiceImplTests {
         registerRequest = new RegisterRequest();
         registerRequest.setLogin(LOGIN);
         registerRequest.setPassword(PASSWORD);
-        registerRequest.setRole(ROLE);
         registerRequest.setUserId(USER_ID);
 
         loginRequest = new LoginRequest();

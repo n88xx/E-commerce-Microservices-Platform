@@ -57,7 +57,6 @@ class AuthControllerIntegrationTest {
         registerRequest = new RegisterRequest();
         registerRequest.setLogin(LOGIN);
         registerRequest.setPassword(PASSWORD);
-        registerRequest.setRole(Role.USER);
         registerRequest.setUserId(USER_ID);
 
         loginRequest = new LoginRequest();
