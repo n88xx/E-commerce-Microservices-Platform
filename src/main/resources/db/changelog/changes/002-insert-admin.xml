@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                             https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
-    <changeSet id="003-insert-admin" author="natalia">
+    <changeSet id="003-insert-admin" author="dev">
         <insert tableName="credentials">
             <column name="user_id" value="1"/>
             <column name="login" value="admin"/>
