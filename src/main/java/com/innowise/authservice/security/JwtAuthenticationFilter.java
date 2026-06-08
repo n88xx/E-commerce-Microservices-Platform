@@ -1,6 +1,5 @@
 package com.innowise.authservice.security;
 
-import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -35,12 +34,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String token = extractToken(request);
 
         if (token != null) {
-            try {
-                if(!jwtProvider.validateToken(token)){
-                    SecurityContextHolder.clearContext();
-                    filterChain.doFilter(request,response);
-                    return;
-                }
+            if (!jwtProvider.validateToken(token)) {
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                return;
+            }
                 Long userId = jwtProvider.getUserIdFromToken(token);
                 String role = jwtProvider.getRoleFromToken(token);
 
@@ -51,10 +48,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                         new UsernamePasswordAuthenticationToken(userId, null, authorities);
 
                 SecurityContextHolder.getContext().setAuthentication(authentication);
-            } catch (JwtException exception) {
-                log.warn("Invalid JWT token: {}", exception.getMessage());
-                SecurityContextHolder.clearContext();
-            }
         }
 
         filterChain.doFilter(request, response);
