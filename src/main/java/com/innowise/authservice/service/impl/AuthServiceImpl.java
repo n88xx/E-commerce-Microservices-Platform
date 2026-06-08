@@ -73,7 +73,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public AuthResponse refresh(RefreshRequest request) {
-        if(jwtProvider.validateToken(request.getRefreshToken())){
+        if(!jwtProvider.validateToken(request.getRefreshToken())){
             throw new TokenException("Invalid or expired refresh token");
         }
 
